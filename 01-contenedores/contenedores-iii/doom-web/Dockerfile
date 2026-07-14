@@ -1,6 +1,5 @@
 #Esta es la imagen que utilizaré como base de mi imagen
 FROM node:20-alpine
-
 #Establezco la ruta /app como directorio de trabajo para alojar mi aplicación, instalar dependencias, etc.
 WORKDIR /app
 
@@ -15,10 +14,12 @@ RUN npm install
 #Copio el resto de los archivos en el directorio /app
 COPY . .
 
-# RUN npm test
+#lanza est para asegurarnos que todo funciona correctamente, aunque no es necesario para el funcionamiento de la aplicación, por lo que lo comento
+#RUN npm test
 
 #Añado como metadato el puerto por el que escucha mi aplicación
 EXPOSE 3000
 
 #Añado otro metadato más que es qué comando se ejecutará cuando se genere un contenedor de esta imagen
 CMD ["npm", "start"]
+
